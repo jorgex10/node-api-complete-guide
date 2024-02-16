@@ -9,10 +9,8 @@ exports.createPost = (req, res, next) => {
   const content = req.body.content;
 
   // create post in db
-  res
-    .status(201)
-    .json({
-      message: "Post created successfully!",
-      post: { id: new Date(), title: title, content: content },
-    });
+  res.status(201).json({
+    message: "Post created successfully!",
+    post: { id: new Date().toISOString(), title: title, content: content },
+  });
 };
