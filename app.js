@@ -56,6 +56,7 @@ app.use(
   graphqlHTTP({
     schema: graphqlSchema,
     rootValue: graphqlResolver,
+    graphiql: true, // to enable http://localhost:8080/graphql
   })
 );
 
