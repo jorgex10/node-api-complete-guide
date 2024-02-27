@@ -48,6 +48,10 @@ app.use((req, res, next) => {
   );
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(200); // To fix error related to options method called by graphql
+  }
+
   next();
 });
 
