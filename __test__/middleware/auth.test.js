@@ -29,7 +29,7 @@ describe("Auth middleware", () => {
     expect(req).toHaveProperty("isAuth", false);
   });
 
-  it("should yield isAuth and userId if the authorization header is correct", () => {
+  test("should yield isAuth and userId if the authorization header is correct", (done) => {
     const req = {
       get: function () {
         return "Bearer foo";
@@ -44,5 +44,6 @@ describe("Auth middleware", () => {
     expect(jwt.verify.mock.calls).toHaveLength(2);
     expect(req).toHaveProperty("userId", "abc");
     expect(req).toHaveProperty("isAuth", true);
+    done();
   });
 });
